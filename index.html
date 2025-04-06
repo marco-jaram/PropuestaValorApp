@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="css/app-style.css">
+    <link rel="icon" type="image/png" href="">
+    <title>APP Propuesta de Valor</title>
+</head>
+
+<body>
+    <div class="barra">
+        <div class="logo contenedor"><i>Weblocalmx</i></div>
+        <button id="cerrar-sesion" class="cerrar-sesion" style="display: none;">Cerrar Sesión</button>
+    </div>
+    
+    <!-- Login Section -->
+    <section id="login-section" class="login-container contenedor">
+        <div class="login-form">
+            <h2>Acceso a la Herramienta de Propuesta de Valor</h2>
+            <p>Ingresa la contraseña para acceder a la aplicación.</p>
+            <div class="input-group">
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" placeholder="Ingresa la contraseña">
+                <button id="login-button">Iniciar Sesión</button>
+            </div>
+            <p id="login-error" class="error-message"></p>
+        </div>
+    </section>
+
+    <!-- Main App (hidden until login) -->
+    <section id="app-content" class="titulo-principal contenedor" style="display: none;">
+        <h1>Aplicación web para obtener la Propuesta de valor de producto o servicio</h1>
+        
+        <p>La propuesta de valor pertenece al lienzo "canvas" del Plan de Negocios, 
+            una herramienta fundamental para comunicar el valor único de tu producto o servicio.</p>
+        <p>Por comodidad utiliza una pantalla de laptop o desktop</p>
+        
+       
+
+        <p><strong>Instrucciones:</strong></p>
+        <ol>
+            <li>Contesta cuestionario</li>
+            <li>Si ya tienes un json con tus respuestas dale en "Cargar JSON"</li>
+            <li>Dale al botón "Generar propuestas" para ver los resultados</li>
+            <li>Guarda tus resultados en boton "Guardar como JOSN"</li>
+        </ol>
+        <p>Si deseas ver el ejemplo solo dale a "Generar respuestas" sin escribir nada</p>
+
+        <p class="advertencia"><strong>Advertencia:</strong> Dale su tiempo a cada pregunta porque es probable que este cuestionario te haga replantear algunos puntos que ya tenías resueltos.</p>
+
+        <form id="formulario">
+            <div class="seccion-form">
+                <h3>1. Nombre del producto o servicio que quieres vender:</h3>
+
+                <p><strong>Ejemplo:</strong> Servicio de Fotografías de Boda → "Bodas De Película" o Curso de nutrición → "Dietas de éxito"</p>
+
+                <div class="input-group">
+                    <label for="respuesta-nombre-servicio1">Nombre 1:</label>
+                    <input type="text" id="respuesta-nombre-servicio1" placeholder="Bodas De Película">
+                </div>
+                <div class="input-group">
+                    <label for="respuesta-nombre-servicio2">Nombre 2:</label>
+                    <input type="text" id="respuesta-nombre-servicio2" placeholder="Memorias Eternas">
+                </div>
+                <div class="input-group">
+                    <label for="respuesta-nombre-servicio3">Nombre 3:</label>
+                    <input type="text" id="respuesta-nombre-servicio3" placeholder="Fotografía Emocional para Bodas">
+                </div>
+            </div>
+
+            <div class="seccion-form">
+                <h3>2. ¿Quién es tu cliente potencial?</h3>
+                <p>¿A quién va dirigido tu producto o servicio? Puede ser un perfil específico de personas o un sector</p>
+                
+                <p><strong>Ejemplo:</strong> Para un servicio de fotografías de boda: "Personas que están planeando una boda" o "Parejas comprometidas"</p>
+
+                <div class="input-group">
+                    <label for="respuesta-cliente-potencial1">Cliente 1:</label>
+                    <input type="text" id="respuesta-cliente-potencial1" placeholder="Personas que están planeando una boda">
+                </div>
+                <div class="input-group">
+                    <label for="respuesta-cliente-potencial2">Cliente 2:</label>
+                    <input type="text" id="respuesta-cliente-potencial2" placeholder="Parejas comprometidas">
+                </div>
+                <div class="input-group">
+                    <label for="respuesta-cliente-potencial3">Cliente 3:</label>
+                    <input type="text" id="respuesta-cliente-potencial3" placeholder="Personas que se van a casar">
+                </div>
+            </div>
+
+            <div class="seccion-form">
+                <h3>3. Lista los principales puntos de dolor que resuelve tu servicio o producto</h3>
+                <p>Escribe todo lo que tu cliente quiere mejorar. Esos problemas que no le dejan dormir por la noche. Redacta los puntos de dolor con el lenguaje de tu cliente.</p>
+                
+                <p><strong>Ejemplo:</strong> Para fotografías de boda: "No tener un reportaje fotográfico de calidad que capture todos los momentos especiales"</p>
+
+                <div class="input-group">
+                    <label for="respuesta-puntos-dolor1">Dolor 1:</label>
+                    <input type="text" id="respuesta-puntos-dolor1" placeholder="No tener reportaje fotográfico de calidad después de la boda">
+                </div>
+                <div class="input-group">
+                    <label for="respuesta-puntos-dolor2">Dolor 2:</label>
+                    <input type="text" id="respuesta-puntos-dolor2" placeholder="El reportaje no muestra todos los momentos importantes de la boda">
+                </div>
+                <div class="input-group">
+                    <label for="respuesta-puntos-dolor3">Dolor 3:</label>
+                    <input type="text" id="respuesta-puntos-dolor3" placeholder="Fotógrafo poco profesional que incomode a los invitados">
+                </div>
+            </div>
+
+            <div class="seccion-form">
+                <h3>4. Haz un listado con los beneficios que tu producto o servicio aporta a tu cliente</h3>
+                <p>Utiliza la fórmula "verbo" + "algo" (Aumentar tranquilidad, reducir estrés). No confundas características con beneficios.</p>
+                
+                <p><strong>Ejemplo:</strong> Para fotografías de boda: "Aumentar la tranquilidad en el día de tu boda" o "Conservar los recuerdos para siempre"</p>
+
+                <div class="input-group">
+                    <label for="respuesta-beneficios1">Beneficio 1:</label>
+                    <input type="text" id="respuesta-beneficios1" placeholder="Estar más tranquilo el día de tu boda">
+                </div>
+                <div class="input-group">
+                    <label for="respuesta-beneficios2">Beneficio 2:</label>
+                    <input type="text" id="respuesta-beneficios2" placeholder="Conservar recuerdos de alta calidad para toda la vida">
+                </div>
+                <div class="input-group">
+                    <label for="respuesta-beneficios3">Beneficio 3:</label>
+                    <input type="text" id="respuesta-beneficios3" placeholder="Compartir momentos especiales con los que no pudieron asistir">
+                </div>
+            </div>
+
+            <div class="seccion-form">
+                <h3>5. Anota las cosas que te hacen diferente respecto a la competencia</h3>
+                <p>Puede ser diferente por modo de dar el servicio, características del servicio, o beneficio adicional (evita competir solo por precio).</p>
+                
+                <p><strong>Ejemplo:</strong> Para un servicio de diseño web: "Implementación de copywriting" o "Atención personalizada 24/7"</p>
+
+                <div class="input-group">
+                    <label for="respuesta-diferencial1">Diferencia 1:</label>
+                    <input type="text" id="respuesta-diferencial1" placeholder="Fotografía documental sin poses forzadas">
+                </div>
+                <div class="input-group">
+                    <label for="respuesta-diferencial2">Diferencia 2:</label>
+                    <input type="text" id="respuesta-diferencial2" placeholder="Álbum digital interactivo incluido">
+                </div>
+                <div class="input-group">
+                    <label for="respuesta-diferencial3">Diferencia 3:</label>
+                    <input type="text" id="respuesta-diferencial3" placeholder="Entrega de primeras imágenes en 24 horas">
+                </div>
+            </div>
+
+            <button id="generar-propuestas" type="submit" class="boton-primario">GENERAR PROPUESTAS</button>
+            <div id="mensaje-carga" class="mensaje-carga"></div>
+        </form>
+
+        <div id="resultado-section" class="resultado-section">
+            <h2>Resultados de tu Propuesta de Valor</h2>
+            
+            <div class="contenido-imprimir">
+                <div class="formula-seccion">
+                    <h3>FÓRMULA A: Propuesta basada en problemas y beneficios</h3>
+                    <p class="formula-template">Ayudo a <span class="destacado">(POTENCIAL CLIENTE)</span> a resolver <span class="destacado">(PUNTO DE DOLOR)</span> a través de <span class="destacado">(SERVICIO/PRODUCTO)</span> para conseguir <span class="destacado">(BENEFICIO)</span>.</p>
+
+                    <div class="resultados">
+                        <h4>Variante 1</h4>
+                        <p class="resultado-formula">Ayudo a <span id="cliente-potencial1" class="resultado-valor">_________</span> a resolver <span id="problema-dolor1" class="resultado-valor">_________</span> a través de <span id="servicio-producto1" class="resultado-valor">_________</span> para conseguir <span id="beneficio1" class="resultado-valor">_________</span>.</p>
+                    </div>
+                    
+                    <div class="resultados">
+                        <h4>Variante 2</h4>
+                        <p class="resultado-formula">Ayudo a <span id="cliente-potencial2" class="resultado-valor">_________</span> a resolver <span id="problema-dolor2" class="resultado-valor">_________</span> a través de <span id="servicio-producto2" class="resultado-valor">_________</span> para conseguir <span id="beneficio2" class="resultado-valor">_________</span>.</p>
+                    </div>
+                    
+                    <div class="resultados">
+                        <h4>Variante 3</h4>
+                        <p class="resultado-formula">Ayudo a <span id="cliente-potencial3" class="resultado-valor">_________</span> a resolver <span id="problema-dolor3" class="resultado-valor">_________</span> a través de <span id="servicio-producto3" class="resultado-valor">_________</span> para conseguir <span id="beneficio3" class="resultado-valor">_________</span>.</p>
+                    </div>
+                </div>
+                
+                <div class="formula-seccion">
+                    <h3>FÓRMULA B: Propuesta a manera de título</h3>
+                    <p class="formula-template"><span class="destacado">(Producto/servicio)</span> para <span class="destacado">(nicho/cliente potencial)</span> con <span class="destacado">(valor diferencial)</span></p>
+                    
+                    <div class="resultados">
+                        <h4>Variante 1</h4>
+                        <p class="resultado-formula"><span id="servicio-producto4" class="resultado-valor">_________</span> para <span id="cliente-potencial4" class="resultado-valor">_________</span> con <span id="valor-diferencial1" class="resultado-valor">_________</span></p>
+                    </div>
+                    
+                    <div class="resultados">
+                        <h4>Variante 2</h4>
+                        <p class="resultado-formula"><span id="servicio-producto5" class="resultado-valor">_________</span> para <span id="cliente-potencial5" class="resultado-valor">_________</span> con <span id="valor-diferencial2" class="resultado-valor">_________</span></p>
+                    </div>
+                    
+                    <div class="resultados">
+                        <h4>Variante 3</h4>
+                        <p class="resultado-formula"><span id="servicio-producto6" class="resultado-valor">_________</span> para <span id="cliente-potencial6" class="resultado-valor">_________</span> con <span id="valor-diferencial3" class="resultado-valor">_________</span></p>
+                    </div>
+                </div>
+            </div>
+            
+            <button id="descargar-json" class="boton-primario">DESCARGAR JSON</button>
+            <button id="editar-respuestas" class="boton-secundario">EDITAR RESPUESTAS</button>
+        </div>
+        <div class="opciones-botones">
+            <!-- <button id="cargar-ejemplo" class="boton-secundario">Cargar ejemplo</button> -->
+            <!-- <button id="limpiar-formulario" class="boton-secundario">Limpiar formulario</button> -->
+            <button id="guardar-json" class="boton-secundario">Guardar como JSON</button>
+            <label for="cargar-json" class="boton-secundario upload-label">Cargar JSON
+                <input type="file" id="cargar-json" accept=".json">
+            </label>
+        </div>
+    </section>
+
+    <footer>
+        <div class="contenido-footer">
+            <span>Creado por WeblocalMX - 2025</span>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
