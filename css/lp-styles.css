@@ -144,40 +144,6 @@ h1 {
     border-radius: 8px;
 }
 
-.form-container {
-    background-color: var(--light-bg);
-    padding: 25px;
-    border-radius: 8px;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-label {
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-bottom: 15px;
-}
-
-button {
-    width: 100%;
-    padding: 12px;
-    background-color: var(--primary);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-weight: 700;
-    cursor: pointer;
-}
 
 .privacy {
     text-align: center;
