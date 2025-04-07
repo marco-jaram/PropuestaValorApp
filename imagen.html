@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Framework Diagram</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 500px;
+            width: 100%;
+        }
+        
+        .square {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 100%;
+            background-color: #e6fae9;
+            border: 1px solid #b8b8b8;
+        }
+        
+        .circle {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 100%;
+            background-color: #e6fae9;
+            border-radius: 50%;
+            margin-top: 40px;
+            border: 1px solid #b8b8b8;
+        }
+        
+        .diagonal-lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .diagonal-line {
+            position: absolute;
+            background-color: #b8b8b8;
+            height: 1px;
+            width: 141.42%; /* √2 * 100% */
+            top: 50%;
+            left: 50%;
+            transform-origin: center;
+        }
+        
+        .diagonal-line-1 {
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+        
+        .diagonal-line-2 {
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+        
+        .vertical-line {
+            position: absolute;
+            width: 1px;
+            height: 100%;
+            background-color: #b8b8b8;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .horizontal-line {
+            position: absolute;
+            height: 1px;
+            width: 100%;
+            background-color: #b8b8b8;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .connector-line {
+            position: absolute;
+            width: 1px;
+            height: 40px;
+            background-color: #b8b8b8;
+            bottom: -41px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .arrow-down {
+            position: absolute;
+            bottom: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 8px solid #b8b8b8;
+        }
+        
+        .arrow-up {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 8px solid #b8b8b8;
+        }
+        
+        .center-icon-square {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+            background-color: #2c2c2c;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .center-icon-circle {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #2c2c2c;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .cube {
+            width: 30px;
+            height: 30px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(-20deg) rotateY(45deg);
+        }
+        
+        .cube-face {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: #1dc4ee;
+            opacity: 0.8;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .front {
+            transform: translateZ(15px);
+        }
+        
+        .back {
+            transform: translateZ(-15px) rotateY(180deg);
+        }
+        
+        .right {
+            transform: rotateY(90deg) translateZ(15px);
+        }
+        
+        .left {
+            transform: rotateY(-90deg) translateZ(15px);
+        }
+        
+        .top {
+            transform: rotateX(90deg) translateZ(15px);
+        }
+        
+        .bottom {
+            transform: rotateX(-90deg) translateZ(15px);
+        }
+        
+        .person-icon {
+            width: 30px;
+            height: 30px;
+            position: relative;
+        }
+        
+        .person-head {
+            width: 12px;
+            height: 12px;
+            background-color: #6adfff;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .person-body {
+            width: 20px;
+            height: 15px;
+            background-color: #6adfff;
+            border-radius: 5px;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .label {
+            position: absolute;
+            font-size: 14px;
+            color: #555;
+            text-align: center;
+            width: 100px;
+        }
+        
+        .label-top {
+            top: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .label-left {
+            top: 50%;
+            left: 15%;
+            transform: translateY(-50%);
+        }
+        
+        .label-right {
+            top: 50%;
+            right: 15%;
+            transform: translateY(-50%);
+        }
+        
+        .label-bottom {
+            bottom: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .dolores {
+           
+            top: 45%;
+            left: 30%;
+            bottom: 20p;
+            
+        }
+        .ganancia {
+          
+          top: 47%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="square">
+            <!-- Square section labels -->
+            <div class="label label-top producto">Producto &<br>Servicios</div>
+            <div class="label label-left alivadores">Aliviadores<br>de Dolor</div>
+            <div class="label label-right creadores">Creadores<br>de Ganancia</div>
+            
+            <!-- Square diagonal lines -->
+            <div class="diagonal-lines">
+                <div class="diagonal-line diagonal-line-1"></div>
+                <div class="diagonal-line diagonal-line-2"></div>
+            </div>
+            
+            <!-- Center icon in square -->
+            <div class="center-icon-square">
+                <div class="cube">
+                    <div class="cube-face front"></div>
+                    <div class="cube-face back"></div>
+                    <div class="cube-face right"></div>
+                    <div class="cube-face left"></div>
+                    <div class="cube-face top"></div>
+                    <div class="cube-face bottom"></div>
+                </div>
+            </div>
+            
+            <!-- Connector between square and circle -->
+            <div class="connector-line"></div>
+            <div class="arrow-down"></div>
+            <div class="arrow-up"></div>
+        </div>
+        
+        <div class="circle">
+            <!-- Circle section labels -->
+            <div class="label label-top dolores">Dolores</div>
+            <div class="label label-right ganancia">Ganancias</div>
+            <div class="label label-bottom trabajos">Trabajos Por<br>Hacer</div>
+            
+            <!-- Circle with vertical and horizontal lines -->
+            <div class="vertical-line"></div>
+            <div class="horizontal-line"></div>
+            
+            <!-- Center icon in circle -->
+            <div class="center-icon-circle">
+                <div class="person-icon">
+                    <div class="person-head"></div>
+                    <div class="person-body"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
